@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="428e12ba-ae32-4c26-94d3-9757dc4b0216">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Categoria" class="java.lang.Integer"/>
+	<parameter name="CategoriaNome" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from conta where categoria_idcategoria =$P{Categoria} ;]]>
+	</queryString>
+	<field name="idconta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_venc" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="conta_fixa" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="carteira_idcarteira" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="forma_pagamento_idforma_pagamento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="usuario_idusuario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="categoria_idcategoria" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="783c4ac1-95dd-4754-90ec-4fde7eb5bb9a"/>
+				<staticText>
+					<reportElement x="20" y="20" width="575" height="43" forecolor="#FFFFFF" uuid="f236910d-0b9a-4f43-a344-1a21fb971928"/>
+					<textElement>
+						<font size="25" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Contas por Categoria]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="325" y="20" width="140" height="43" forecolor="#FEFEFE" uuid="6aa9c534-6b14-44ae-a05f-b88738177d50"/>
+					<textElement>
+						<font size="25"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{CategoriaNome}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="a377527a-f24e-4818-9eb7-6ea294df9a0a"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="38" height="20" uuid="54bfa7a4-1e32-44da-86aa-0498dc406c25"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="1" width="90" height="20" uuid="2c3c51eb-7a34-48eb-8be8-696115e01e30"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="1" width="100" height="20" uuid="31b1704a-b948-4865-8a33-3a3accf69ef4"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="0" width="100" height="20" uuid="5125917b-a2e1-4227-adee-b94c801914e6"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="0" width="100" height="20" uuid="5c7690dc-6ec5-48ce-ae28-f7d6d705ee64"/>
+				<text><![CDATA[Data Vencimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="fbfaa4cd-5fc9-4ffd-812c-55504e2d1f73"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="66" height="20" uuid="47a83a8c-434f-40a1-a168-9698a1224c93"/>
+				<textFieldExpression><![CDATA[$F{idconta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="100" height="20" uuid="d864b4ed-3a96-478b-9d5b-0e1ca405245a"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="0" width="100" height="20" uuid="8d9f7368-ed91-447d-9fbc-b0223f7764ac"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="100" height="20" uuid="7087388e-fd2b-4931-8526-ee5343d65dab"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="415" y="0" width="100" height="20" uuid="d888ecbc-40d4-401a-be96-f7f3cb39e13f"/>
+				<textFieldExpression><![CDATA[$F{data_venc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6f906737-9274-4f77-9280-36687ed5eb9b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="d691a227-1e14-4945-aed6-e63a6f62767a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="09a98803-2737-40fc-8a0d-58668694d96a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

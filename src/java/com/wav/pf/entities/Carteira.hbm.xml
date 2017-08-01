@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21/11/2016 19:27:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.wav.pf.entities.Carteira" table="carteira" catalog="pf" optimistic-lock="version">
+        <id name="idcarteira" type="java.lang.Integer">
+            <column name="idcarteira" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="com.wav.pf.entities.Usuario" fetch="select">
+            <column name="usuario_idusuario" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="saldo" type="double">
+            <column name="saldo" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

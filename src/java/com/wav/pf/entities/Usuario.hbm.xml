@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21/11/2016 19:27:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.wav.pf.entities.Usuario" table="usuario" catalog="pf" optimistic-lock="version">
+        <id name="idusuario" type="java.lang.Integer">
+            <column name="idusuario" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="endereco" class="com.wav.pf.entities.Endereco" fetch="select">
+            <column name="endereco_idendereco" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="10" not-null="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

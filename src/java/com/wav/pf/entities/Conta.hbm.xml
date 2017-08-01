@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21/11/2016 19:27:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.wav.pf.entities.Conta" table="conta" catalog="pf" optimistic-lock="version">
+        <id name="idconta" type="java.lang.Integer">
+            <column name="idconta" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="carteira" class="com.wav.pf.entities.Carteira" fetch="select">
+            <column name="carteira_idcarteira" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoria" class="com.wav.pf.entities.Categoria" fetch="select">
+            <column name="categoria_idcategoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="formaPagamento" class="com.wav.pf.entities.FormaPagamento" fetch="select">
+            <column name="forma_pagamento_idforma_pagamento" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.wav.pf.entities.Usuario" fetch="select">
+            <column name="usuario_idusuario" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="valor" type="double">
+            <column name="valor" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="data" type="date">
+            <column name="data" length="10" not-null="true" />
+        </property>
+        <property name="dataVenc" type="date">
+            <column name="data_venc" length="10" />
+        </property>
+        <property name="tipo" type="int">
+            <column name="tipo" not-null="true" />
+        </property>
+        <property name="contaFixa" type="boolean">
+            <column name="conta_fixa" not-null="true" />
+        </property>
+        <property name="paga" type="byte">
+            <column name="paga" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

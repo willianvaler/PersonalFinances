@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 21/11/2016 19:27:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.wav.pf.entities.Endereco" table="endereco" catalog="pf" optimistic-lock="version">
+        <id name="idendereco" type="java.lang.Integer">
+            <column name="idendereco" />
+            <generator class="identity" />
+        </id>
+        <property name="endereco" type="string">
+            <column name="endereco" length="200" not-null="true" />
+        </property>
+        <property name="cidade" type="string">
+            <column name="cidade" length="45" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="45" not-null="true" />
+        </property>
+        <property name="pais" type="string">
+            <column name="pais" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
